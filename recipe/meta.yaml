@@ -1,4 +1,4 @@
-{% set version = '2018.07.26' %}
+{% set version = "2019.11.03" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,11 +11,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/pec_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/pec/pec_{{ version }}.tar.gz
-  sha256: 95c5612b55d2062f35f1ac97752f2c2e21edca394d5671a6b0b7d74da710b91f
+  sha256: c00cdadd5cc0b1d9d9c6660074ac0154db7276fba1ce0d714f2a189ee698cec0
 
 build:
   merge_build_host: True  # [win]
-  number: 1001
+  number: 0
   skip: true  # [win32]
   rpaths:
     - lib/R/lib/
