@@ -7,7 +7,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: pec_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/pec_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/pec/pec_{{ version }}.tar.gz
@@ -16,14 +15,13 @@ source:
 build:
   merge_build_host: true  # [win]
   number: 0
-  skip: true  # [win32]
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
+    - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
@@ -33,7 +31,9 @@ requirements:
   host:
     - r-base
     - r-foreach >=1.4.2
+    - r-lava >=1.4.1
     - r-prodlim >=1.4.9
+    - r-riskregression >=2020.02.05
     - r-rms >=4.2_0
     - r-survival >=2.37_7
     - r-timereg >=1.8.9
@@ -41,7 +41,9 @@ requirements:
     - r-base
     - {{ native }}gcc-libs         # [win]
     - r-foreach >=1.4.2
+    - r-lava >=1.4.1
     - r-prodlim >=1.4.9
+    - r-riskregression >=2020.02.05
     - r-rms >=4.2_0
     - r-survival >=2.37_7
     - r-timereg >=1.8.9
@@ -53,10 +55,11 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=pec
-  license: GPL (>= 2)
+  license: GPL-2.0-or-later
   summary: Validation of risk predictions obtained from survival models and competing risk models based on censored data using inverse weighting and cross-validation.
-  license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
+  license_family: GPL2
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
