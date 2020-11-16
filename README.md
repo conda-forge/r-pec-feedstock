@@ -3,7 +3,7 @@ About r-pec
 
 Home: https://CRAN.R-project.org/package=pec
 
-Package license: GPL (>= 2)
+Package license: GPL-2.0-or-later
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-pec-feedstock/blob/master/LICENSE.txt)
 
