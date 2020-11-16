@@ -1,4 +1,4 @@
-{% set version = "2019.11.03" %}
+{% set version = "2020.11.17" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,11 +11,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/pec_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/pec/pec_{{ version }}.tar.gz
-  sha256: c00cdadd5cc0b1d9d9c6660074ac0154db7276fba1ce0d714f2a189ee698cec0
+  sha256: 82c0df573a0e358c688092fdda2b570e751997aceed83c4326759548b8ad55bc
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   skip: true  # [win32]
   rpaths:
     - lib/R/lib/
@@ -54,10 +54,9 @@ test:
 about:
   home: https://CRAN.R-project.org/package=pec
   license: GPL (>= 2)
-  summary: Validation of risk predictions obtained from survival models and competing risk models
-    based on censored data using inverse weighting and cross-validation.
+  summary: Validation of risk predictions obtained from survival models and competing risk models based on censored data using inverse weighting and cross-validation.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
