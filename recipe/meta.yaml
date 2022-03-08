@@ -1,4 +1,4 @@
-{% set version = "2021.10.11" %}
+{% set version = "2022.03.06" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/pec_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/pec/pec_{{ version }}.tar.gz
-  sha256: b179048bf0ebf1a0219fc600a9dc5d8970bd62154d96b267d18dd3c0321e66b1
+  sha256: d55e1d9b5786537ed127f3c470e8e139a9745969dea9a495afe13743a89883ec
 
 build:
   merge_build_host: true  # [win]
