@@ -1,6 +1,5 @@
 {% set version = "2023.04.12" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-pec
@@ -13,8 +12,7 @@ source:
   sha256: 6552fe9843b0b59bfd97c0db70c1ac5b0291184b498a796803b9dca0dc70ef95
 
 build:
-  merge_build_host: true  # [win]
-  number: 1
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
@@ -22,7 +20,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
@@ -39,7 +39,6 @@ requirements:
     - r-timereg >=1.8.9
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-foreach >=1.4.2
     - r-lava >=1.4.1
     - r-prodlim >=1.4.9
